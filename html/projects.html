@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kyle Lai Thom</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://kit.fontawesome.com/9ee56faa09.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="animated-background"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const numCircles = 30;
+            const colors = ["#ff6347", "#00bfff", "#32cd32", "#ff69b4", "#ffd700"];
+
+            for (let i = 0; i < numCircles; i++) {
+                createCircle();
+            }
+
+            function createCircle() {
+                const circle = document.createElement("div");
+                circle.classList.add("circle");
+                circle.style.width = Math.floor(Math.random() * 200 + 30) + "px";
+                circle.style.height = circle.style.width;
+                circle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                circle.style.top = Math.random() * 100 + "vh";
+                circle.style.left = Math.random() * 100 + "vw";
+                const speed = Math.random() * 0.2;
+                const angle = Math.random() * 360;
+                const radians = angle * (Math.PI / 180);
+                const direction = {
+                    x: Math.cos(radians),
+                    y: Math.sin(radians)
+                };
+                circle.dataset.speed = speed;
+                circle.dataset.direction = JSON.stringify(direction);
+                document.getElementById("animated-background").appendChild(circle);
+            }
+
+            function updateCircles() {
+                const circles = document.querySelectorAll('.circle');
+                circles.forEach(circle => {
+                    const speed = parseFloat(circle.dataset.speed);
+                    const direction = JSON.parse(circle.dataset.direction);
+                    const currentTop = parseFloat(circle.style.top);
+                    const currentLeft = parseFloat(circle.style.left);
+
+                    circle.style.top = currentTop + speed * direction.y + "vh";
+                    circle.style.left = currentLeft + speed * direction.x + "vw";
+
+                    if (currentTop < -50 || currentTop > 110 || currentLeft < -50 || currentLeft > 110) {
+                        circle.style.top = Math.random() * 100 + "vh";
+                        circle.style.left = Math.random() * 100 + "vw";
+                    }
+                });
+            }
+
+            setInterval(updateCircles, 30);
+        });
+
+    </script>
+
+    <div class="Projects">
+        <figure class="text-center">
+
+            <f1>My Projects</f1>
+
+            <br>
+            <a href="https://github.com/Ky1e-100" target="_blank" class="social-link">
+                <i class="fab fa-github fa-2x"></i> My GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/kyle-lai-thom-9513612a9/" target="_blank" class="social-link">
+                <i class="fab fa-linkedin fa-2x"></i> My LinkedIn
+            </a>
+
+            <f2 class="email">
+                <i class="far fa-envelope"></i> klaithom@gmail.com
+            </f2>
+
+            <br>
+            <br>
+            <a href="/html/index.html" class="social-link">
+                <i class="fa-solid fa-house fa-2x"></i> Home
+            </a>
+            <br>
+            <f2>These are my Ongoing & Completed Projects. There are links to each github project.</f2>
+        </figure>
+    </div>
+
+    <div class="projectCards">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="card mb-3">
+                        <img src="/pictures/STRAVA.png" class="card-img-top">
+                        <div class="card-body">
+                            <f3 class="card-title">Cycling Tracker and Competition Website (Coursework) </f3>
+                            <br>
+                            <f5> November 2023 <br>Developed a web application that provided users a platform to sync
+                                their cycling data
+                                with
+                                Strava to review statistics and compete with other users.
+                                Used an SQLite database, a Node.js/Express.js server, template rendering via
+                                Handlebars, and integration with the Strava API.
+                                <br>
+                                <br>
+                                <a href="https://youtu.be/VxFFnVfovAQ" target="_blank" class="btn btn-primary">School
+                                    Video
+                                    Demonstration</a>
+                                <br>
+                                <br>
+                                <a href="https://github.com/Ky1e-100/StravaTracker" target="_blank"
+                                    class="btn btn-primary">View on
+                                    GitHub</a>
+
+                            </f5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-3">
+                        <img src="/pictures/KPOPKOLLECTION.png" class="card-img-top">
+                        <div class="card-body">
+                            <f3 class="card-title">K-Pop Collection App (Personal Project) </f3>
+                            <br>
+                            <f5>March 2023<br>Developed an App using Java, JavaFX, Swing, and Object-Oriented
+                                Programming principles,
+                                providing users with a platform to organize,
+                                manage, and share digital trading card collections. Collections were able to be stored
+                                in
+                                files.
+                                <br>
+                                <br>
+                                <a href="https://github.com/Ky1e-100/KoolKpopKollection" target="_blank"
+                                    class="btn btn-primary">View on
+                                    GitHub</a>
+
+                            </f5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-3">
+                        <img src="/pictures/SEARCHCODE.png" class="card-img-top">
+                        <div class="card-body">
+                            <f3 class="card-title">Web Crawler & Search Engine (Coursework) </f3>
+                            <br>
+                            <f5>December 2022 <br>Designed a search engine program capable of web crawling and scraping
+                                to help users discover websites that align with their specific needs. Implemented in
+                                both Python
+                                and
+                                Java.
+                                <br>
+                                <br>
+                                Java Implementation:
+                                <a href="https://github.com/Ky1e-100/JavaSearchEngine" target="_blank"
+                                    class="btn btn-primary">View on
+                                    GitHub</a>
+                                <br>
+                                Python Implementation:
+                                <a href="https://github.com/Ky1e-100/PythonSearchEngine" target="_blank"
+                                    class="btn btn-primary">View on
+                                    GitHub</a>
+                                <br>
+                            </f5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://images.unsplash.com/photo-1526925539332-aa3b66e35444?q=80&w=2565&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <f3>Technical Skills</f3>
+                            <br>
+
+                                    <f3>Languages:</f3>
+                                    <f5>
+                                        <br>
+                                        • JavaScript
+                                        <br>
+                                        • HTML/CSS
+                                        <br>
+                                        • Java
+                                        <br>
+                                        • C/C++
+                                        <br>
+                                        • Python
+
+                                    </f5>
+                                    <br>
+                                    <f3>Technologies:</f3>
+                                    <f5>
+                                        <br>
+                                        • SQLite
+                                        <br>
+                                        • Node.js
+                                        <br>
+                                        • Express.js
+                                        <br>
+                                        • Bootstrap
+
+
+                                    </f5>
+
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    </div>
+</body>
+
+</html>

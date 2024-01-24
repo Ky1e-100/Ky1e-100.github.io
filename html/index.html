@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kyle Lai Thom</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://kit.fontawesome.com/9ee56faa09.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="animated-background"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const numCircles = 30;
+            const colors = ["#ff6347", "#00bfff", "#32cd32", "#ff69b4", "#ffd700"];
+
+            for (let i = 0; i < numCircles; i++) {
+                createCircle();
+            }
+
+            function createCircle() {
+                const circle = document.createElement("div");
+                circle.classList.add("circle");
+                circle.style.width = Math.floor(Math.random() * 200 + 30) + "px";
+                circle.style.height = circle.style.width;
+                circle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                circle.style.top = Math.random() * 100 + "vh";
+                circle.style.left = Math.random() * 100 + "vw";
+                const speed = Math.random() * 0.2;
+                const angle = Math.random() * 360;
+                const radians = angle * (Math.PI / 180);
+                const direction = {
+                    x: Math.cos(radians),
+                    y: Math.sin(radians)
+                };
+                circle.dataset.speed = speed;
+                circle.dataset.direction = JSON.stringify(direction);
+                document.getElementById("animated-background").appendChild(circle);
+            }
+
+            function updateCircles() {
+                const circles = document.querySelectorAll('.circle');
+                circles.forEach(circle => {
+                    const speed = parseFloat(circle.dataset.speed);
+                    const direction = JSON.parse(circle.dataset.direction);
+                    const currentTop = parseFloat(circle.style.top);
+                    const currentLeft = parseFloat(circle.style.left);
+
+                    circle.style.top = currentTop + speed * direction.y + "vh";
+                    circle.style.left = currentLeft + speed * direction.x + "vw";
+
+                    if (currentTop < -50 || currentTop > 110 || currentLeft < -50 || currentLeft > 110) {
+                        circle.style.top = Math.random() * 100 + "vh";
+                        circle.style.left = Math.random() * 100 + "vw";
+                    }
+                });
+            }
+
+            setInterval(updateCircles, 30);
+        });
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function handleViewProjectsClick() {
+                const card = document.querySelector('.card.text-bg-dark');
+                card.classList.add('zoom-in');
+
+                setTimeout(function () {
+                    window.location.href = 'projects.html';
+                }, 1000);
+            }
+
+
+            const viewProjectsButton = document.querySelector('.btn.btn-primary');
+            viewProjectsButton.addEventListener('click', handleViewProjectsClick);
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function handleViewExperienceClick() {
+                const card = document.querySelector('#experienceCard');
+                card.classList.add('zoom-in');
+                setTimeout(function () {
+                    window.location.href = 'experience.html';
+                }, 1000); 
+            }
+
+            const viewExperienceButton = document.querySelector('#experienceButton');
+            viewExperienceButton.addEventListener('click', handleViewExperienceClick);
+        });
+    </script>
+
+
+
+
+
+    <div class="welcomeMessage">
+        <figure class="text-center">
+
+            <f1>Kyle Lai Thom</f1>
+
+            <br>
+            <a href="https://github.com/Ky1e-100" target="_blank" class="social-link">
+                <i class="fab fa-github fa-2x"></i> My GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/kyle-lai-thom-9513612a9/" target="_blank" class="social-link">
+                <i class="fab fa-linkedin fa-2x"></i> My LinkedIn
+            </a>
+
+            <f2 class="email">
+                <i class="far fa-envelope"></i> klaithom@gmail.com
+            </f2>
+
+            <br>
+            <br>
+            <f2>Hello, I'm Kyle, a second-year student at Carleton University currently pursuing a
+                Bachelor of
+                Computer Science: Artificial Intelligence and Machine
+                Learning Stream minoring in Statistics. I am currently pursuing a co-op position in Web/Software
+                engineering. I am excited to gain hands-on experience and
+                contribute to real-world projects. While my professional journey is just beginning, my
+                enthusiasm, quick learning, and commitment to growth drive me
+                to make the most of every opportunity. I am eager to continue leraning while meeting lots of people on
+                the way. Some interesting facts about me are: I am bilingual (English and French), I love K-pop &
+                K-dramas, I am a avid Cylist, and I am a huge fan of the Toronto Maple Leafs. Take a look around the site and feel
+                free to connect with me! </f2>
+                
+        </figure>
+    </div>
+
+
+    <div class="transferCards">
+        <div class="container text-center">
+            <br><br><br>
+            <div class="row">
+                <div class="col">
+                    <div class="card text-bg-dark">
+                        <img src="https://images.unsplash.com/photo-1595044426077-d36d9236d54a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="card-img blurred-img">
+                        <div class="card-img-overlay">
+                            <br>
+                            <br>
+                            <f4 class="card-text">See my Ongoing & Completed Projects</f4>
+                            <br>
+                            <br>
+                            <a href="#" class="btn btn-primary">View Projects</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-bg-dark">
+                        <img src="https://images.unsplash.com/photo-1628116709703-c1c9ad550d36?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="card-img blurred-img" alt="..."> 
+                        <div class="card-img-overlay">
+
+                            <br>
+                            <br>
+                            <f4 class="card-text">Download my Resume</f4>
+                            <br>
+                            <br>
+                            <a href="/pdf/Resume.pdf" class="btn btn-primary" target="_blank"> View Resume</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-bg-dark" id="experienceCard">
+                        <img src="                    https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+                        " class="card-img blurred-img" alt="...">
+                        <div class="card-img-overlay">
+
+                            <br>
+                            <br>
+                            <f4 class="card-text">Education & Work Experience</f4>
+                            <br>
+                            <br>
+                            <a href="#" class="btn btn-primary" id="experienceButton"> View Education & Experience</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
