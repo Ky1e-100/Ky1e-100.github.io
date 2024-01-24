@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kyle Lai Thom</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://kit.fontawesome.com/9ee56faa09.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div id="animated-background"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const numCircles = 30;
+            const colors = ["#ff6347", "#00bfff", "#32cd32", "#ff69b4", "#ffd700"];
+
+            for (let i = 0; i < numCircles; i++) {
+                createCircle();
+            }
+
+            function createCircle() {
+                const circle = document.createElement("div");
+                circle.classList.add("circle");
+                circle.style.width = Math.floor(Math.random() * 200 + 30) + "px";
+                circle.style.height = circle.style.width;
+                circle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                circle.style.top = Math.random() * 100 + "vh";
+                circle.style.left = Math.random() * 100 + "vw";
+                const speed = Math.random() * 0.2;
+                const angle = Math.random() * 360;
+                const radians = angle * (Math.PI / 180);
+                const direction = {
+                    x: Math.cos(radians),
+                    y: Math.sin(radians)
+                };
+                circle.dataset.speed = speed;
+                circle.dataset.direction = JSON.stringify(direction);
+                document.getElementById("animated-background").appendChild(circle);
+            }
+
+            function updateCircles() {
+                const circles = document.querySelectorAll('.circle');
+                circles.forEach(circle => {
+                    const speed = parseFloat(circle.dataset.speed);
+                    const direction = JSON.parse(circle.dataset.direction);
+                    const currentTop = parseFloat(circle.style.top);
+                    const currentLeft = parseFloat(circle.style.left);
+
+                    circle.style.top = currentTop + speed * direction.y + "vh";
+                    circle.style.left = currentLeft + speed * direction.x + "vw";
+
+                    if (currentTop < -50 || currentTop > 110 || currentLeft < -50 || currentLeft > 110) {
+                        circle.style.top = Math.random() * 100 + "vh";
+                        circle.style.left = Math.random() * 100 + "vw";
+                    }
+                });
+            }
+
+            setInterval(updateCircles, 30);
+        });
+
+    </script>
+
+    <div class="Projects">
+        <figure class="text-center">
+
+            <f1>Work Experience</f1>
+
+            <br>
+            <a href="https://github.com/Ky1e-100" target="_blank" class="social-link">
+                <i class="fab fa-github fa-2x"></i> My GitHub
+            </a>
+
+            <a href="https://www.linkedin.com/in/kyle-lai-thom-9513612a9/" target="_blank" class="social-link">
+                <i class="fab fa-linkedin fa-2x"></i> My LinkedIn
+            </a>
+
+            <f2 class="email">
+                <i class="far fa-envelope"></i> klaithom@gmail.com
+            </f2>
+
+            <br>
+            <br>
+            <a href="/html/index.html" class="social-link">
+                <i class="fa-solid fa-house fa-2x"></i> Home
+            </a>
+            <br>
+            <f2>This is my Education & Job Experience</f2>
+        </figure>
+    </div>
+
+
+    <div class="projectCards">
+        <div class="container text-center">
+
+            <div class="card mb-3">
+                <img src="https://ires.ubc.ca/files/2020/08/carleton-university-vector-logo.jpg" class="card-img-top">
+                <div class="card-body">
+                    <f3> Carleton University</f3>
+                    <br>
+                    <f5>September 2022 - April2027</f5>
+                    <br>
+                    <div class="container text-left">
+                        <f5>Bachelor of Computer Science Honors with AI and Machine Learning
+                            Minoring in Statistics
+                            <br>
+                            September 2022 - Present
+                            <br>
+                            <br>
+                            Expected Graduation: Winter 2027 <br>
+                            11.0 CGPA (A) <br>
+                            Faculty Scholarship, Dean's List
+                        </f5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col">
+                    <div class="card mb-3">
+                        <img src="https://prnewswire2-a.akamaihd.net/p/1893751/sp/189375100/thumbnail/entry_id/0_6dt2p6n0/def_height/2700/def_width/2700/version/100012/type/1"
+                            class="card-img-top">
+                        <div class="card-body">
+                            <f3 class="card-title">Teaching Assistant</f3>
+                            <br>
+                            <f5> Spirit of Math Schools<br>September 2019 - June 2022 <br>
+                                <ul>
+                                    <li>Taught students advanced math principles using effective teaching strategies
+                                        and
+                                        providing clear examples.
+                                    </li>
+                                    <li>Maintained good communication with students and their parents regarding the
+                                        curriculum and expectations on
+                                        previous and upcoming assignments.</li>
+                                    <li>Assessed and provided detailed feedback on student tests and homework.
+                                    </li>
+                                    <li> Adapted to both in-person and remote teaching environments to ensure
+                                        students
+                                        were not missing out on anything</li>
+                                </ul>
+
+                            </f5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-3">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            class="card-img-top">
+                        <div class="card-body">
+                            <f3 class="card-title">Private Tutor </f3>
+                            <br>
+                            <f5> Self Employed <br>September 2021 - June 2022
+                                <ul>
+                                    <li>Curated personalized math tutoring lessons to students in grades 4-6 that
+                                        were tailored to their specific needs.
+                                    </li>
+                                    <li>Discussed areas in need of improvement with both parents and students with
+                                        easy-to-understand directions. <br>
+                                    </li>
+
+                                </ul>
+                            </f5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
