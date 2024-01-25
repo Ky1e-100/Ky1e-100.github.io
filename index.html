@@ -69,7 +69,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             function handleViewProjectsClick() {
-                const card = document.querySelector('.card.text-bg-dark');
+                const card = document.querySelector('#proJectCard');
                 card.classList.add('zoom-in');
 
                 setTimeout(function () {
@@ -147,7 +147,7 @@
             <br>
             <div class="row">
                 <div class="col-md-4">
-                    <div class="card h-100">
+                    <div class="card h-100" id="proJectCard">
                         <img src="https://images.unsplash.com/photo-1595044426077-d36d9236d54a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
                         <div class="card-body d-flex flex-column">
                             <f3 class="card-text">See my Ongoing & Completed Projects</f3>
@@ -165,12 +165,12 @@
                             <br>
                             <br>
                             <br>
-                            <a href="/pdf/Resume.pdf" class="btn btn-primary mt-auto" target="_blank"> View Resume</a>
+                            <a href="/pdf/KyleLaiThomResume.pdf" class="btn btn-primary mt-auto" target="_blank"> View Resume</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card h-100">
+                    <div class="card h-100" id="experienceCard">
                         <img src="https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="...">
                         <div class="card-body d-flex flex-column">
                             <f3 class="card-text">Education & Work Experience</f3>
@@ -183,15 +183,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
-
-
 </body>
 
 </html>
